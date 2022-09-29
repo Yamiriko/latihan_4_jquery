@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Latihan 4 Javascript</title>
+<script src="jquery-3.6.1.min.js"></script>
+</head> 
+<body>
+<noscript>Javascript Belum Diaktifkan</noscript>
+<h1>Latihan 4 Javascript</h1>
+<p>Dibawah ini akan dilakukan pemrograman javascript</p>
+<form id="form_input">
+  <p>
+    <label for="n1">Nilai 1</label>
+    <input type="number" min="0" max="99" id="n1" value="0" required autofocus />
+  </p>
+  <p>
+    <label for="n2">Nilai 2</label>
+    <input type="number" min="0" max="99" id="n2" value="0" required />
+  </p>
+  <p>
+    <label for="hsl">Hasilnya</label>
+    <input type="number" min="0" max="99" id="hsl" value="0" />
+  </p>
+  <p>
+    <span id="hitung">(Hasil perhitungan)</span>
+    <br>
+    <span id="hasil">(Hasil Perulangan)</span>
+  </p>
+  <p>
+    <button id="btn_proses" type="button" onclick="proses();">Proses</button>
+  </p>
+</form>
+
+<script>
+function proses() {
+  let n1 = $("#n1").val();
+  let n2 = $('#n2').val();
+  let hsl = $('#hsl').val();;
+  let nilai_hasil = parseInt(n1) + parseInt(n2);
+  let cek = (parseInt(hsl) === nilai_hasil) ? true : false;
+  if (cek){
+    let konten = '';
+    for (let index = parseInt(n1); index < parseInt(n2); index++) {
+      konten+=index + '<br>';
+    }
+    console.log(konten);
+    $('#hitung').text(cek);
+    $('#hasil').html(konten);
+  }
+  else{
+    $('#hitung').text(cek);
+    $('#hasil').html('(Hasil Perulangan)');
+  }
+}
+</script>
+</body>
+</html>
